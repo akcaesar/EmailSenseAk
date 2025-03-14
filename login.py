@@ -1,3 +1,11 @@
+"""
+Author: Akshay NS
+This script fetches the last 5 emails from the user's Gmail inbox.
+It uses the IMAP protocol to connect to Gmail's server and fetch the emails.
+
+"""
+
+
 import imaplib
 import email
 import os
