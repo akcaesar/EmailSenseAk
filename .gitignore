@@ -8,7 +8,3 @@ __pycache__/
 # Ignore virtual environment directories
 venv/
 env/
-
-# Ignore jupyter notebook checkpoints
-.ipynb_checkpoints/
-testing.ipynb
