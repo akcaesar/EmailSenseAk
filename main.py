@@ -11,7 +11,7 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from typing import List
 from pydantic import BaseModel
-from EmailSense_cp.components.email_df import email_df
+from components.email_df import email_df
 import utilities
 
 app = FastAPI()
