@@ -8,3 +8,17 @@ __pycache__/
 # Ignore virtual environment directories
 venv/
 env/
+
+# Ignore Node.js cache directories
+frontend/node_modules/ 
+# Ignore the frontend build directory
+frontend/dist/
+# Ignore the backend build directory
+backend/__pycache__/
+backend/.mypy_cache/
+backend/.pytest_cache/
+backend/.vscode/
+
+# Ignore deleted files
+*.log
+*.log.*
