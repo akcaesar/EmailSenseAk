@@ -13,3 +13,13 @@ email-project/
 │   │── tailwind.config.js # Tailwind setup
 │   │── vite.config.js    # Vite config
 │── README.md
+
+
+
+
+
+1. Encounterd CORS Problem
+
+Solved by using fetch instead of axios
+No the solution turned out to be setting the backend server to be public.
+

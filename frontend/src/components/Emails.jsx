@@ -1,14 +1,13 @@
-// This file contains the code for the home page of the frontend. It fetches the number of emails from the backend and displays it on the page.
 import React, { useEffect, useState } from 'react';
 import api from '../api';
 
-const Home = () => {
+const Emails = () => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await api.get('/emails/count');
+                const response = await api.get('/emails');
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -20,10 +19,10 @@ const Home = () => {
 
     return (
         <div>
-            <h1>Connected to backend</h1>
-            <p>{data ? JSON.stringify(data.count) : 'Loading...'}</p>
+            <h2>These are the emails</h2>
+            <p>{data ? JSON.stringify(data) : 'Loading...'}</p>
         </div>
     );
 };
 
-export default Home;
+export default Emails;
