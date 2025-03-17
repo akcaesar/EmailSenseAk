@@ -22,3 +22,4 @@ backend/.vscode/
 # Ignore deleted files
 *.log
 *.log.*
+help.txt
