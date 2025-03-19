@@ -14,8 +14,8 @@ import utilities as utilities
 app = FastAPI()
 
 origins = [
-    "https://fuzzy-rotary-phone-jw66v6699q4h54qg-5173.app.github.dev",
-    "https://fuzzy-rotary-phone-jw66v6699q4h54qg-8000.app.github.dev"
+    "https://your-vercel-frontend.vercel.app",  ##My Vercel Frontend URL
+    "http://localhost:3000"
 ]
 
 app.add_middleware(
