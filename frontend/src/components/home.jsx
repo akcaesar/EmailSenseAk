@@ -21,7 +21,7 @@ const Home = () => {
     return (
         <div>
             <h1>Home Page</h1>
-            <p>{data ? JSON.stringify(data) : 'Loading...'}</p>
+            <p>{data ? `The count of emails is ${data.count}` : 'Loading...'}</p>
         </div>
     );
 };
