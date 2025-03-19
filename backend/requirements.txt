@@ -1,0 +1,14 @@
+# Core dependencies
+fastapi
+uvicorn
+python-dotenv
+
+
+
+
+# Data processing
+pandas
+numpy
+
+
+
