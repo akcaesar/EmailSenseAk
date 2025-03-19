@@ -9,7 +9,10 @@ WORKDIR /app
 COPY . .
 
 # Create the Conda environment using the requirements.txt file
-RUN conda create --name emailsense_env --file requirements.txt python=3.10 -y
+RUN conda create --name emailsense_env python=3.8 -y
+RUN conda activate emailsense_env
+RUN pip install -r requirements
+# RUN conda create --name emailsense_env --file requirements.txt python=3.10 -y
 
 # Activate the Conda environment and install Uvicorn
 RUN echo "conda activate emailsense_env" > ~/.bashrc
