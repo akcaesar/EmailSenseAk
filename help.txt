@@ -13,3 +13,8 @@ email-project/
 │   │── tailwind.config.js # Tailwind setup
 │   │── vite.config.js    # Vite config
 │── README.md
+
+
+
+Git Undo last commit:
+git reset --soft HEAD~1
