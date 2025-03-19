@@ -23,3 +23,5 @@ backend/.vscode/
 *.log
 *.log.*
 help.txt
+help.txt
+testing.ipynb
