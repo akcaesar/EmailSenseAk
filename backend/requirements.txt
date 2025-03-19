@@ -1,14 +1,14 @@
 # Core dependencies
-fastapi==0.115.11
-uvicorn==0.34.0
-python-dotenv==1.0.1
+fastapi
+uvicorn
+python-dotenv
 
 
 
 
 # Data processing
-pandas==1.5.3
-numpy==1.23.5
+pandas
+numpy
 
 
 
