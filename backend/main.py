@@ -14,7 +14,7 @@ import utilities as utilities
 app = FastAPI()
 
 origins = [
-    "https://your-vercel-frontend.vercel.app",  ##My Vercel Frontend URL
+    "https://emailsensefr.onrender.com",
     "http://localhost:3000"
 ]
 
