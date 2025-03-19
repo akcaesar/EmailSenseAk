@@ -1,0 +1,36 @@
+name: Deploy to Render
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow on changes to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Install Render CLI
+      - name: Install Render CLI
+        run: curl -fsSL https://render.com/static/cli/install.sh | bash
+
+      # Step 3: Authenticate with Render
+      - name: Authenticate with Render
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        run: |
+          render login --api-key $RENDER_API_KEY
+
+      # Step 4: Trigger deployment for backend
+      - name: Deploy Backend
+        run: |
+          render deploy service-name-backend --service-id ${{ secrets.RENDER_BACKEND_SERVICE_ID }}
+
+      # Step 5: Trigger deployment for frontend
+      - name: Deploy Frontend
+        run: |
+          render deploy service-name-frontend --service-id ${{ secrets.RENDER_FRONTEND_SERVICE_ID }}
