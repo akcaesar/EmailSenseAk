@@ -14,6 +14,7 @@ from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lsa import LsaSummarizer
 import nltk
 nltk.download('punkt_tab')
+import re
 
 
 
@@ -34,30 +35,30 @@ email_df_mod = email_df.copy()
 # print(f"DataFrame saved to {output_file}")
 
 
-##cleaning the text
-htmlremtext = html2text.HTML2Text()
-htmlremtext.ignore_links = True
-htmlremtext.bypass_tables = False
-def clean_text(text):
-    if text:
-        soup = BeautifulSoup(text, 'html.parser')
-        text = soup.get_text()
-        cleantext = "\n".join(line.strip() for line in text.splitlines() if line.strip())
-        cleantext = htmlremtext.handle(cleantext)
-        return cleantext
-    return text
+# Function to clean text
+def preprocess_text(text):
+    if not text or not isinstance(text, str):
+        return ""
+    
+    # Remove URLs
+    text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
+    
+    # Remove excessive whitespace and repetitive patterns
+    text = re.sub(r'\s+', ' ', text)  # Replace multiple spaces/newlines with a single space
+    text = re.sub(r'(.)\1{4,}', r'\1', text)  # Remove repetitive characters (e.g., "-----" -> "-")
+    
+    # Remove HTML tags
+    soup = BeautifulSoup(text, "html.parser")
+    text = soup.get_text()
+    
+    return text.strip()
 
-email_df_mod['Body'] = email_df_mod['Body'].apply(clean_text)
-
-
-
-####summary of the email
 # Function to summarize text
 def summarize_text(text, sentences_count=3):
     if not text or not isinstance(text, str):
-        return ""  # Return empty string for invalid or empty input
+        return ""
     try:
-        # Parse the input text
+        # Parse the cleaned text
         parser = PlaintextParser.from_string(text, Tokenizer("english"))
         # Create an LSA summarizer
         summarizer = LsaSummarizer()
@@ -69,5 +70,6 @@ def summarize_text(text, sentences_count=3):
         print(f"Error summarizing text: {e}")
         return ""
 
-email_df_mod['Body'] = email_df_mod['Body'].apply(lambda x: summarize_text(x, sentences_count=5))
-
+email_df_mod['Summarized'] = email_df_mod['Body']
+email_df_mod['Summarized'] = email_df_mod['Body'].apply(preprocess_text)
+email_df_mod['Summarized'] = email_df_mod['Body'].apply(summarize_text)

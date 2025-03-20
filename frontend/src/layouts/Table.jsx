@@ -39,7 +39,8 @@ export default function BasicTable() {
             <TableCell>Subject</TableCell>
             <TableCell>Date</TableCell>
             <TableCell>Time</TableCell>
-            <TableCell>Body</TableCell>
+            {/* <TableCell>Body</TableCell> */}
+            <TableCell>Summarized</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -54,7 +55,8 @@ export default function BasicTable() {
               <TableCell>{row.Subject}</TableCell>
               <TableCell>{new Date(row.Date).toLocaleDateString()}</TableCell>
               <TableCell>{new Date(row.Date).toLocaleTimeString()}</TableCell>
-              <TableCell>{row.Body}</TableCell>
+              {/* <TableCell>{row.Body}</TableCell> */}
+              <TableCell>{row.Summarized}</TableCell>
             </TableRow>
           ))}
         </TableBody>

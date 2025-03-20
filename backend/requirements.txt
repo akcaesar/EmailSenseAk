@@ -12,4 +12,5 @@ numpy
 sumy
 nltk.download('punkt_tab')
 html2text
+re
 
