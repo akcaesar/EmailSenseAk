@@ -23,3 +23,8 @@ email-project/
 Solved by using fetch instead of axios
 No the solution turned out to be setting the backend server to be public.
 
+
+2. Solved how to fetch more emails
+Change was to enable ignore errors option in the command 
+email_body = msg.get_payload(decode=True).decode(errors="ignore")
+
