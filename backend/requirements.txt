@@ -1,0 +1,15 @@
+# Core dependencies
+fastapi
+uvicorn
+python-dotenv
+
+
+
+
+# Data processing
+pandas
+numpy
+sumy
+nltk.download('punkt_tab')
+html2text
+

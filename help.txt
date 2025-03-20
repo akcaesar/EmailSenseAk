@@ -28,3 +28,8 @@ No the solution turned out to be setting the backend server to be public.
 Change was to enable ignore errors option in the command 
 email_body = msg.get_payload(decode=True).decode(errors="ignore")
 
+3. solved Sumy nltk problem by dowloading
+
+Sumy requires the "punkt_tab" package in addition to "punkt." Paste this line just below nltk.download('punkt'):
+nltk.download('punkt_tab')
+
